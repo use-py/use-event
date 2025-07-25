@@ -198,22 +198,3 @@ MIT License
 ## 贡献
 
 欢迎提交 Issue 和 Pull Request！
-
-<a href="https://github.com/use-py/use-event/actions/workflows/test.yml?query=event%3Apush+branch%3Amain" target="_blank">
-    <img src="https://github.com/use-py/use-event/actions/workflows/test.yml/badge.svg?branch=main&event=push" alt="Test">
-</a>
-<a href="https://pypi.org/project/use-event" target="_blank">
-    <img src="https://img.shields.io/pypi/v/use-event.svg" alt="Package version">
-</a>
-
-<a href="https://pypi.org/project/use-event" target="_blank">
-    <img src="https://img.shields.io/pypi/pyversions/use-event.svg" alt="Supported Python versions">
-</a>
-
-A python nacos client based on the official [open-api](https://nacos.io/zh-cn/docs/open-api.html).
-
-## install
-
-```shell
-pip install use-event
-```
