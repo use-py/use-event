@@ -1,0 +1,37 @@
+[tool.poetry]
+name = "use-event"
+version = "0.1.6"
+description = "A python nacos client based on the official open-api"
+authors = ["MicLon <jcnd@163.com>"]
+readme = "README.md"
+license = "MIT"
+homepage = "https://github.com/use-py/use-event"
+repository = "https://github.com/use-py/use-event"
+packages = [{ include = "use_event", from = "src" }]
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/use-py/use-event/issues"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+
+[tool.poetry.group.test.dependencies]
+pylint = "*"
+pytest = "*"
+pytest-asyncio = "*"
+pytest-mock = "*"
+black = "*"
+flake8 = "*"
+isort = "*"
+pre-commit = "*"
+pre-commit-hooks = "*" 
+
+[[tool.poetry.source]]
+name = "mirrors"
+url = "https://mirrors.aliyun.com/pypi/simple/"
+priority = "primary"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
