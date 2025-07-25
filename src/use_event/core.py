@@ -119,8 +119,14 @@ class EventBus:
                 # We're in an async context, create task for async handlers
                 asyncio.create_task(self._execute_async_handlers(async_handlers, *args, **kwargs))
             except RuntimeError:
-                # No running loop, run async handlers in new event loop
-                asyncio.run(self._execute_async_handlers(async_handlers, *args, **kwargs))
+                # No running loop, create a new thread to run async handlers
+                # This prevents blocking the current thread
+                import threading
+                def run_async_handlers():
+                    asyncio.run(self._execute_async_handlers(async_handlers, *args, **kwargs))
+                
+                thread = threading.Thread(target=run_async_handlers, daemon=True)
+                thread.start()
     
     def _execute_sync_handlers(self, handlers: List[EventHandler], *args, **kwargs) -> None:
         """Execute synchronous handlers with error isolation."""
